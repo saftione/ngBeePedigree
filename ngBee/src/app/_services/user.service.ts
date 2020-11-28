@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 
 
 
-const API_URL = `${environment.API_URL}/api/test/`;
+const API_URL = `${environment.API_URL}/api/`;
 
 
 

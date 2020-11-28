@@ -19,6 +19,7 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { environment } from '../environments/environment';
     BoardUserComponent,
     TutorialDetailsComponent,
     TutorialsListComponent,
+    AddTutorialComponent,
   ],
   imports: [
     BrowserModule,

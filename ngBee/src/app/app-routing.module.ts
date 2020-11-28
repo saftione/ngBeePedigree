@@ -10,10 +10,12 @@ import { BoardModeratorComponent } from './components/board-moderator/board-mode
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
+import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 
 const routes: Routes = [
   { path: 'tutorials', component: TutorialsListComponent },
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
+  { path: 'add', component: AddTutorialComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

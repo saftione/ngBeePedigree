@@ -1,0 +1,43 @@
+
+https://lagerhub.herokuapp.com/ngsw/state
+npm run dev
+
+
+ng serve --port 8081
+ng build --prod
+http-server -p 8081 -c-1 dist/ngApp
+
+npm install express mongoose body-parser cors jsonwebtoken bcryptjs --save
+npm install -g nodemon
+npm install --save-dev @babel/core
+npm install --save-dev @babel/node
+npm install --save-dev @babel/preset-env
+npm install dotenv
+g
+
+ng g s _services/auth/auth
+
+ng g @angular/material:material-table --name=storage-data-table
+ng g c components/auth/login
+
+// "dist/ngLager",
+
+
+git remote -v
+git remote remove heroku
+git remote add Lagerhub http....
+git push Lagerhub master
+git pull Lagerhub master
+git commit -m "test"
+git add *
+  
+
+
+https://ngrx.io/guide/store/selectors
+https://stackblitz.com/edit/ng-select-ymus3e
+https://netbasal.com/manage-your-filters-like-a-pro-in-angular-with-combinelatest-e7b0204be2df
+https://blog.angulartraining.com/dynamic-filtering-with-rxjs-and-angular-forms-a-tutorial-6daa3c44076a
+
+
+
+https://stackblitz.com/edit/angular-material-mat-select-dynamic-data-binding-in-angular?file=app%2Fselect-value-binding-example.ts

@@ -1,5 +1,5 @@
 {
-  "name": "lagerhub",
+  "name": "Pedigree",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saftione/LagerHub.git"
+    "url": "git+https://github.com/saftione/Pedigree.git"
   },
   "author": "Florian Tröber",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/saftione/LagerHub/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/saftione/LagerHub#readme",
+  "homepage": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

@@ -45,7 +45,7 @@ db.mongoose
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
-    initial();
+    //initial();
   })
   .catch(err => {
     console.error("Connection error", err);
@@ -63,24 +63,6 @@ require("./app/routes/auth/user.routes")(app);
 require("./app/routes/auth/company.routes")(app);
 
 require("./app/routes/turorial.routes")(app);
-require("./app/routes/todo.routes")(app);
-
-require("./app/routes/movement/storage.routes")(app);
-
-
-
-require("./app/routes/master_data/product.routes")(app);
-require("./app/routes/master_data/field.routes")(app);
-require("./app/routes/master_data/warehouse.routes")(app);
-require("./app/routes/master_data/traktor.routes")(app);
-require("./app/routes/master_data/trailer.routes")(app);
-require("./app/routes/master_data/retailer.routes")(app);
-
-require('./app/routes/upload/upload.routes.js')(app);
-require('./app/routes/upload/validateKontrakte.routes.js')(app);
-require('./app/routes/upload/validateStorage.routes.js')(app);
-
-require('./app/routes/kontrakte/kontrakte.routes.js')(app);
 
 
 console.log(`${db}`);

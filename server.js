@@ -60,7 +60,7 @@ app.get("/", (req, res) => {
 // routes
 require("./app/routes/auth/auth.routes")(app);
 require("./app/routes/auth/user.routes")(app);
-require("./app/routes/auth/company.routes")(app);
+
 
 require("./app/routes/turorial.routes")(app);
 

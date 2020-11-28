@@ -17,6 +17,8 @@ import { BoardUserComponent } from './components/board-user/board-user.component
 
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [ authInterceptorProviders],
   bootstrap: [AppComponent]

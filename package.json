@@ -13,9 +13,9 @@
   "author": "Florian Tröber",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/saftione/Pedigree.git"
   },
-  "homepage": "",
+  "homepage": "https://github.com/saftione/Pedigree.git",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

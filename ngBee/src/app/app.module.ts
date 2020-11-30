@@ -65,6 +65,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { PedigreeDroneSearchComponent } from './components/insert/pedigree-drone-search/pedigree-drone-search.component';
 import { BreederSearchComponent } from './components/insert/breeder-search/breeder-search.component';
 import { PedigreeTableComponent } from './components/pedigree-table/pedigree-table.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { PedigreeTableComponent } from './components/pedigree-table/pedigree-tab
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     MatDialogModule,
+    MatButtonModule,
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,

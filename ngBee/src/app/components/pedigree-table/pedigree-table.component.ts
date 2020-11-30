@@ -14,10 +14,9 @@ export class PedigreeTableComponent implements OnInit {
 
 
 
-  ELEMENT_DATA: PedigreeModel[];
   displayedColumns: string[] = ['user','breeder','name', 'action'];
-  dataSource = new MatTableDataSource<PedigreeModel>(this.ELEMENT_DATA);
-
+  UserData: any = [];
+  dataSource: MatTableDataSource<PedigreeModel>;
 
   selection = new SelectionModel<PedigreeModel>(true, []);
   message: string;
@@ -37,7 +36,8 @@ export class PedigreeTableComponent implements OnInit {
   public getAllReports() {
 
     const userKey = JSON.parse(sessionStorage.getItem(USER_KEY));
-    let resp = this.pedigreeService.getAll();
-    resp.subscribe(report => this.dataSource.data = report as PedigreeModel[])
+    let data = this.pedigreeService.getAll();
+    this.UserData = data;
+    this.dataSource = new MatTableDataSource<PedigreeModel>(this.UserData);
   }
 }

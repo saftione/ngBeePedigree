@@ -58,7 +58,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatBadgeModule} from '@angular/material/badge';
-import { MatTableDataSource } from '@angular/material/table';
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { PedigreeSearchComponent } from './components/insert/pedigree-search/pedigree-search.component';
@@ -103,7 +102,6 @@ import { PedigreeTableComponent } from './components/pedigree-table/pedigree-tab
     MatSelectModule,
     MatFormFieldModule,
     NgxMatSelectSearchModule,
-    MatTableDataSource,
 
     BrowserModule,
     BrowserAnimationsModule,

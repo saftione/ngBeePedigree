@@ -1,65 +1,40 @@
-<div class="mat-elevation-z8">
-  <div class="sideleft">
+<p>{{ message }}</p>
+
+<p *ngIf="UserData.length <= 0" class="no-data">There is no data added yet!</p>
+
+<div class="container" *ngIf="UserData.length > 0">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="breeder">
+        <th mat-header-cell *matHeaderCellDef> Warehouse </th>
+        <td mat-cell *matCellDef="let element"> {{element.breeder}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> field </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns">
+      </mat-row>
+
+
+
+
+    </table>
 
 
   </div>
-
-  <p>{{ message }}</p>
-
-  <table mat-table [dataSource]="dataSource">
-
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef> type</th>
-      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="product">
-      <th mat-header-cell *matHeaderCellDef>product </th>
-      <td mat-cell *matCellDef="let element"> {{element.product?.name}} </td>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="warehouse">
-      <th mat-header-cell *matHeaderCellDef> Warehouse </th>
-      <td mat-cell *matCellDef="let element"> {{element.warehouse?.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="field">
-      <th mat-header-cell *matHeaderCellDef> field </th>
-      <td mat-cell *matCellDef="let element"> {{element.field?.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="trailer">
-      <th mat-header-cell *matHeaderCellDef> trailer </th>
-      <td mat-cell *matCellDef="let element"> {{element.trailer?.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="traktor">
-      <th mat-header-cell *matHeaderCellDef> traktor </th>
-      <td mat-cell *matCellDef="let element"> {{element.traktor?.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="gross_weight">
-      <th mat-header-cell *matHeaderCellDef> gross_weight</th>
-      <td mat-cell *matCellDef="let element"> {{element?.gross_weight}} </td>
-    </ng-container>
-    <ng-container matColumnDef="nett_weight">
-      <th mat-header-cell *matHeaderCellDef> net_weight </th>
-      <td mat-cell *matCellDef="let element"> {{element?.nett_weight}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element; let i = index;">
-
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-
-
-
-  </table>
-
-
 </div>

@@ -1,0 +1,20 @@
+<mat-dialog-content [formGroup]="form">
+
+<input placeholder="Name BXXX" formControlName="name">
+<input placeholder="Breeder FT" formControlName="breeder">
+<input placeholder="fertilization ini" formControlName="fertilization">
+<input placeholder="fertilizationDate 1999" formControlName="fertilizationDate">
+<input placeholder="properties" formControlName="properties">
+<input placeholder="Drone" formControlName="drones">
+<input placeholder="description" formControlName="description">
+<app-pedigree-search [address]="form"></app-pedigree-search>
+<app-pedigree-drone-search [address]="form"></app-pedigree-drone-search>
+
+
+
+
+
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+
+</mat-dialog-content>

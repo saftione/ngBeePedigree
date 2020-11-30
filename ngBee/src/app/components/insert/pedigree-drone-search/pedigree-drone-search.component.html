@@ -1,0 +1,9 @@
+<div [formGroup]="address">
+  <mat-form-field>
+    <mat-label>Mother</mat-label>
+    <mat-select formControlName="drones">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let pedigree of pedigrees" [value]="pedigree.id">{{pedigree.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+//Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -14,18 +16,17 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
-
-
-import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
-import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import { TutorialDetailsComponent } from './components/test/tutorial-details/tutorial-details.component';
+import { TutorialsListComponent } from './components/test/tutorials-list/tutorials-list.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
-import { PedigreeComponent } from './components/insert/pedigree/pedigree.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogPedigreeComponent } from './components/insert/dialog-pedigree/dialog-pedigree.component';
 
-//mat
+import { PedigreeComponent } from './components/insert/pedigree/pedigree.component';
+import { DialogPedigreeComponent } from './components/insert/dialog-pedigree/dialog-pedigree.component';
+import { PedigreeDroneSearchComponent } from './components/insert/pedigree-drone-search/pedigree-drone-search.component';
+import { BreederSearchComponent } from './components/insert/breeder-search/breeder-search.component';
+import { PedigreeTableComponent } from './components/insert/pedigree-table/pedigree-table.component';
+import { PedigreeQueenSearchComponent } from './components/insert/pedigree-queen-search/pedigree-queen-search.component';
+
 //Angular Material Components
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -58,14 +59,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatBadgeModule} from '@angular/material/badge';
+import { MatButtonModule } from '@angular/material/button';
+//andere Module
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
-import { PedigreeSearchComponent } from './components/insert/pedigree-search/pedigree-search.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { PedigreeDroneSearchComponent } from './components/insert/pedigree-drone-search/pedigree-drone-search.component';
-import { BreederSearchComponent } from './components/insert/breeder-search/breeder-search.component';
-import { PedigreeTableComponent } from './components/pedigree-table/pedigree-table.component';
-import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -82,7 +80,7 @@ import { MatButtonModule } from '@angular/material/button';
     AddTutorialComponent,
     PedigreeComponent,
     DialogPedigreeComponent,
-    PedigreeSearchComponent,
+    PedigreeQueenSearchComponent,
     PedigreeDroneSearchComponent,
     BreederSearchComponent,
     PedigreeTableComponent,

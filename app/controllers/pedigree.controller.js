@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     fertilizationDate: req.body.fertilizationDate,
     properties: req.body.properties,
     queen: req.body.queen,
-   // drones: req.body.drones,
+    drones: req.body.drones,
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
 

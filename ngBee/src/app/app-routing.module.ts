@@ -8,9 +8,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
-import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
-import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
+import { TutorialsListComponent } from './components/test/tutorials-list/tutorials-list.component';
+import { TutorialDetailsComponent } from './components/test/tutorial-details/tutorial-details.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
+import { PedigreeComponent } from './components/insert/pedigree/pedigree.component';
 
 const routes: Routes = [
   { path: 'tutorials', component: TutorialsListComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
+  { path: 'pedigree', component: PedigreeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

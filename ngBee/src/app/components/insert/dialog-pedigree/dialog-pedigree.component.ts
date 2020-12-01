@@ -41,7 +41,7 @@ export class DialogPedigreeComponent {
     } else {
       this.form = fb.group({
         id: id,
-        name:name,
+        name: name,
         user: user,
         breeder: breeder,
         fertilization: fertilization,

@@ -8,11 +8,11 @@ import { PedigreeModel } from '../../../model/pedigree.model';
 
 
 @Component({
-  selector: 'app-pedigree-search',
-  templateUrl: './pedigree-search.component.html',
-  styleUrls: ['./pedigree-search.component.css']
+  selector: 'app-pedigree-queen-search',
+  templateUrl: './pedigree-queen-search.component.html',
+  styleUrls: ['./pedigree-queen-search.component.css']
 })
-export class PedigreeSearchComponent implements OnInit{
+export class PedigreeQueenSearchComponent implements OnInit{
 
   pedigrees: any;
 

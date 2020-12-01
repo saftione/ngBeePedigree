@@ -6,12 +6,19 @@ import { SelectionModel } from '@angular/cdk/collections';
 import {PedigreeService} from '../../../_services/pedigree.service'
 const USER_KEY = 'auth-user';
 
+
 @Component({
   selector: 'app-pedigree',
   templateUrl: './pedigree.component.html',
   styleUrls: ['./pedigree.component.css']
 })
+
+
+
+
 export class PedigreeComponent implements OnInit {
+
+
 
   message: string;
   constructor(
@@ -142,4 +149,5 @@ export class PedigreeComponent implements OnInit {
           console.log(error);
         });
   }
+
 }

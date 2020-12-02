@@ -3,6 +3,9 @@ import { Edge, Node, Layout } from '@swimlane/ngx-graph';
 import { DagreNodesOnlyLayout } from './customDagreNodesOnly';
 import * as shape from 'd3-shape';
 
+import * as dagre from 'dagre';
+
+
 export class Employee {
   id: string;
   name: string;
@@ -10,6 +13,7 @@ export class Employee {
   role: string;
   backgroundColor: string;
   upperManagerId?: string;
+  upperManagerId2?: string;
 }
 
 @Component({
@@ -39,12 +43,20 @@ export class TreeBoardComponent implements OnInit {
         backgroundColor: '#DC143C'
       },
       {
+        id: '7',
+        name: 'Employee 7',
+        office: 'Office 7',
+        role: 'Manager',
+        backgroundColor: '#DC143C'
+      },
+      {
         id: '2',
         name: 'Employee 2',
         office: 'Office 2',
         role: 'Engineer',
         backgroundColor: '#00FFFF',
-        upperManagerId: '1'
+        upperManagerId: '1',
+        upperManagerId2: '7'
       },
       {
         id: '3',
@@ -52,7 +64,8 @@ export class TreeBoardComponent implements OnInit {
         office: 'Office 3',
         role: 'Engineer',
         backgroundColor: '#00FFFF',
-        upperManagerId: '1'
+        upperManagerId: '1',
+        upperManagerId2: '7'
       },
       {
         id: '4',
@@ -98,8 +111,28 @@ export class TreeBoardComponent implements OnInit {
         target: employee.id,
         label: '',
         data: {
-          linkText: 'Manager of'
-        }
+   
+        },
+
+      };
+
+      this.links.push(edge);
+    }
+
+
+    for (const employee of this.employees) {
+      if (!employee.upperManagerId2) {
+        continue;
+      }
+
+      const edge: Edge = {
+        source: employee.upperManagerId2,
+        target: employee.id,
+        label: '',
+        data: {
+        
+        },
+
       };
 
       this.links.push(edge);

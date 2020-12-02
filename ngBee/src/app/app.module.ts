@@ -67,6 +67,7 @@ import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { TreeBoardComponent } from './components/graph/tree-board/tree-board.component';
+import { TreeBoardPedigreeComponent } from './components/graph/tree-board-pedigree/tree-board-pedigree.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { TreeBoardComponent } from './components/graph/tree-board/tree-board.com
     BreederSearchComponent,
     PedigreeTableComponent,
     TreeBoardComponent,
+    TreeBoardPedigreeComponent,
   ],
   imports: [
     BrowserModule,

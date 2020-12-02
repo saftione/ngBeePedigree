@@ -1,19 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Edge, Node, Layout } from '@swimlane/ngx-graph';
+import { Layout, Edge, Node } from '@swimlane/ngx-graph';
 import { DagreNodesOnlyLayout } from './customDagreNodesOnly';
-import * as shape from 'd3-shape';
+import { stepRound } from './customStepCurved';
 
-import * as dagre from 'dagre';
-
-
-export class Employee {
+export class Bee {
   id: string;
   name: string;
-  office: string;
-  role: string;
-  backgroundColor: string;
-  upperManagerId?: string;
-  upperManagerId2?: string;
+  queenBee?: string;
+  droneBee?: string;
 }
 
 @Component({
@@ -21,129 +15,82 @@ export class Employee {
   templateUrl: './tree-board.component.html',
   styleUrls: ['./tree-board.component.css']
 })
-export class TreeBoardComponent implements OnInit {
+export class TreeBoardComponent {
 
-  @Input() employees: Employee[] = [];
-
+  @Input() bee: Bee[] = [];
   public nodes: Node[] = [];
   public links: Edge[] = [];
-  public layoutSettings = {
-    orientation: 'TB'
-  };
-  public curve: any = shape.curveLinear;
+  public curve: any = stepRound;
   public layout: Layout = new DagreNodesOnlyLayout();
 
   constructor() {
-    this.employees = [
+    this.bee = [
       {
         id: '1',
-        name: 'Employee 1',
-        office: 'Office 1',
-        role: 'Manager',
-        backgroundColor: '#DC143C'
-      },
-      {
-        id: '7',
-        name: 'Employee 7',
-        office: 'Office 7',
-        role: 'Manager',
-        backgroundColor: '#DC143C'
+        name: 'B1',
       },
       {
         id: '2',
-        name: 'Employee 2',
-        office: 'Office 2',
-        role: 'Engineer',
-        backgroundColor: '#00FFFF',
-        upperManagerId: '1',
-        upperManagerId2: '7'
+        name: 'B2',
       },
       {
         id: '3',
-        name: 'Employee 3',
-        office: 'Office 3',
-        role: 'Engineer',
-        backgroundColor: '#00FFFF',
-        upperManagerId: '1',
-        upperManagerId2: '7'
+        name: 'B3',
+        queenBee: '1',
+        droneBee: '2'
       },
       {
         id: '4',
-        name: 'Employee 4',
-        office: 'Office 4',
-        role: 'Engineer',
-        backgroundColor: '#00FFFF',
-        upperManagerId: '1'
+        name: 'B4',
+        queenBee: '1',
+        droneBee: '2'
       },
       {
         id: '5',
-        name: 'Employee 5',
-        office: 'Office 5',
-        role: 'Student',
-        backgroundColor: '#8A2BE2',
-        upperManagerId: '4'
+        name: 'B5',
+        queenBee: '4',
+        droneBee: '3'
       }
     ];
   }
 
   public ngOnInit(): void {
-    for (const employee of this.employees) {
+    for (const bee of this.bee) {
       const node: Node = {
-        id: employee.id,
-        label: employee.name,
-        data: {
-          office: employee.office,
-          role: employee.role,
-          backgroundColor: employee.backgroundColor
-        }
+        id: bee.id,
+        label: bee.name,
       };
 
       this.nodes.push(node);
     }
 
-    for (const employee of this.employees) {
-      if (!employee.upperManagerId) {
+    for (const bee of this.bee) {
+      if (!bee.queenBee) {
         continue;
       }
 
       const edge: Edge = {
-        source: employee.upperManagerId,
-        target: employee.id,
-        label: '',
-        data: {
-   
-        },
-
+        source: bee.queenBee,
+        target: bee.id,
       };
 
       this.links.push(edge);
     }
 
-
-    for (const employee of this.employees) {
-      if (!employee.upperManagerId2) {
+    for (const bee of this.bee) {
+      if (!bee.droneBee) {
         continue;
       }
 
       const edge: Edge = {
-        source: employee.upperManagerId2,
-        target: employee.id,
-        label: '',
-        data: {
-        
-        },
-
+        source: bee.droneBee,
+        target: bee.id,
       };
 
       this.links.push(edge);
     }
   }
 
-  public getStyles(node: Node): any {
-    return {
-      'background-color': node.data.backgroundColor
-    };
-  }
+ 
 }
-
 

@@ -99,18 +99,7 @@ export class DagreNodesOnlyLayout implements Layout {
 
     const curveDistance = this.settings.curveDistance || this.defaultSettings.curveDistance;
     // generate new points
-    edge.points = [
-      startingPoint,
-      {
-        [rankAxis]: (startingPoint[rankAxis] + endingPoint[rankAxis]) / 2,
-        [orderAxis]: startingPoint[orderAxis]
-      },
-      {
-        [orderAxis]: endingPoint[orderAxis],
-        [rankAxis]: (startingPoint[rankAxis] + endingPoint[rankAxis]) / 2
-      },
-      endingPoint
-    ];
+    edge.points = [startingPoint, endingPoint];
     const edgeLabelId = `${edge.source}${EDGE_KEY_DELIM}${edge.target}${EDGE_KEY_DELIM}${DEFAULT_EDGE_NAME}`;
     const matchingEdgeLabel = graph.edgeLabels[edgeLabelId];
     if (matchingEdgeLabel) {
@@ -156,7 +145,7 @@ export class DagreNodesOnlyLayout implements Layout {
       let linkId: number = 1;
       const newLink: any = Object.assign({}, l);
       if (!newLink.id) {
-        newLink.id = linkId;
+        newLink.id = 'a' + linkId.toString();
         linkId++;
       }
       return newLink;

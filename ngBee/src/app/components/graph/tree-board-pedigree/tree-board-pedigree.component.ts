@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3v4'
-import {scaleLinear} from "d3-scale";
-import {nest,values} from "d3-collection";
-import {mean,min,max,ascending} from "d3-array";
+import { scaleLinear } from "d3-scale";
+import { nest, values } from "d3-collection";
+import { mean, min, max, ascending } from "d3-array";
 
-import {pedigreeTree} from '@solgenomics/d3-pedigree-tree'
+import { pedigreeTree } from '@solgenomics/d3-pedigree-tree'
 
 
 function main() {
@@ -26,7 +26,9 @@ function main() {
     .data(nodes);
 
 
-  drawTree(tree(), ".canv", 0);
+  console.log("tree", tree());
+
+  drawTree(tree(), ".canv", 1);
   var s = 999
   var end = false;
   var ended = false;
@@ -34,6 +36,17 @@ function main() {
     if (s < 1000 && !(end && ended)) drawTree(tree.iterations(s++)(), ".canv", d3.transition().duration(400).ease(d3.easeLinear));
     if (end) ended = true;
   }, 500);
+  const clicky = function () {
+    end = true;
+    ended = false;
+    d3.select("body").on("click", null).on("click", function () {
+      d3.select("body").on("click", clicky);
+      s = 0
+      end = false;
+    });
+  }
+  d3.select("body").on("click", clicky);
+
 
   function generate_nodes(num_init, num_breedings, min_children, max_children) {
     var nodes = [];
@@ -67,13 +80,13 @@ function main() {
 
     //set default change-transtion to no duration
     trans = trans || d3.transition().duration(0);
-    console.log("trans",trans)
+    console.log("trans", trans)
     //make wrapper(pdg)
     console.log(layout);
     var canv = d3.select(svg_selector);
     console.log(canv);
 
-     var pdg = canv.append('g').classed('pedigreeTree', true);
+    var pdg = canv.append('g').classed('pedigreeTree', true);
     var canvw = 100;
     var canvh = 100;
     //make background

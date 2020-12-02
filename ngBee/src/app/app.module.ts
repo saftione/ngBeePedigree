@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { NgxGraphModule } from '@swimlane/ngx-graph';
+import { CommonModule } from '@angular/common';
 //Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -64,6 +66,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { TreeBoardComponent } from './components/graph/tree-board/tree-board.component';
+import { TreeBoardPedigreeComponent } from './components/graph/tree-board-pedigree/tree-board-pedigree.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +88,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     PedigreeDroneSearchComponent,
     BreederSearchComponent,
     PedigreeTableComponent,
+    TreeBoardComponent,
+    TreeBoardPedigreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,6 +108,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     MatSelectModule,
     MatFormFieldModule,
     NgxMatSelectSearchModule,
+    NgxGraphModule,
+    CommonModule,
 
     BrowserModule,
     BrowserAnimationsModule,

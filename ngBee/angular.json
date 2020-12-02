@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "ngBee"
+  "defaultProject": "ngBee",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,21 +1,53 @@
 
+<div class="container">
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <div class="row">
+    <div class="col">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-  <ng-container matColumnDef="properties">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.properties}} </td>
-  </ng-container>
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="properties">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.properties}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; let i = index; columns: displayedColumns;" (click)="setActiveRow(row, i)"></tr>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </table>
+
+    </div>
+    <div class="col-md-auto">
+      <div *ngIf="currentRowData">
+        <h4>Tutorial</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentRowData[0] }}
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+          {{ currentRowData.description }}
+        </div>
+        <div>
+          <label><strong>Status:</strong></label>
+          {{ currentRowData.published ? "Published" : "Pending" }}
+        </div>
+
+        <a class="badge badge-warning" href="/tutorials/{{ currentRowData.id }}">
+          Edit
+        </a>
+      </div>
+    </div>
+    <div class="col col-lg-3">
+      3 of 3
+    </div>
+  </div>
+</div>
 
 
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>

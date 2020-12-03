@@ -126,7 +126,11 @@ return .5;
 return person._parents;
 });
 
+<<<<<<< HEAD
 d3.json(jsondata, function(error, data){
+=======
+d3.json(jsondata, function(error, json){
+>>>>>>> 7062126764b51e107aa22577a39f085545a61cc6
 
 if(error) {
 return console.error(error);
@@ -142,7 +146,7 @@ svg.selectAll("path.link")
   .attr("class", "link")
   .attr("d", elbow);
 
-// Style nodes    
+// Style nodes
 var node = svg.selectAll("g.person")
   .data(nodes)
 .enter().append("g")
@@ -164,10 +168,14 @@ node.append("text")
   .attr("dy", 0)
   .attr("text-anchor", "start")
   .attr('class', 'name')
-  .text(function(d) { 
-    return d.name; 
+  .text(function(d) {
+    return d.name;
   });
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 7062126764b51e107aa22577a39f085545a61cc6
 });
 
 /**
@@ -176,7 +184,7 @@ node.append("text")
 function elbow(d) {
 return "M" + d.source.y + "," + d.source.x
 + "H" + (d.source.y + (d.target.y-d.source.y)/2)
-+ "V" + d.target.x 
++ "V" + d.target.x
 + "H" + d.target.y;
 }
 

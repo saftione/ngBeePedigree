@@ -126,11 +126,11 @@ return .5;
 return person._parents;
 });
 
-//d3.json(jsondata, function(error, json){
+d3.json(jsondata, function(error, json){
 
-//if(error) {
-//return console.error(error);
-//}
+if(error) {
+return console.error(error);
+}
 
 var nodes = tree.nodes(jsondata),
   links = tree.links(nodes);
@@ -142,7 +142,7 @@ svg.selectAll("path.link")
   .attr("class", "link")
   .attr("d", elbow);
 
-// Style nodes    
+// Style nodes
 var node = svg.selectAll("g.person")
   .data(nodes)
 .enter().append("g")
@@ -164,11 +164,11 @@ node.append("text")
   .attr("dy", 0)
   .attr("text-anchor", "start")
   .attr('class', 'name')
-  .text(function(d) { 
-    return d.name; 
+  .text(function(d) {
+    return d.name;
   });
-  
-//});
+
+});
 
 /**
 * Custom path function that creates straight connecting lines.
@@ -176,7 +176,7 @@ node.append("text")
 function elbow(d) {
 return "M" + d.source.y + "," + d.source.x
 + "H" + (d.source.y + (d.target.y-d.source.y)/2)
-+ "V" + d.target.x 
++ "V" + d.target.x
 + "H" + d.target.y;
 }
 

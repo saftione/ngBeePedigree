@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username: string;
+  bild1:string = 'assets/biene2.png';
 
   constructor(private tokenStorageService: TokenStorageService) { }
 

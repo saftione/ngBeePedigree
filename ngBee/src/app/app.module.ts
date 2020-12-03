@@ -28,7 +28,6 @@ import { PedigreeDroneSearchComponent } from './components/insert/pedigree-drone
 import { BreederSearchComponent } from './components/insert/breeder-search/breeder-search.component';
 import { PedigreeTableComponent } from './components/insert/pedigree-table/pedigree-table.component';
 import { PedigreeQueenSearchComponent } from './components/insert/pedigree-queen-search/pedigree-queen-search.component';
-
 //Angular Material Components
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -72,7 +71,6 @@ import { TreeGlobalComponent } from './components/graph/tree-global/tree-global.
 import { TreeUserComponent } from './components/graph/tree-user/tree-user.component';
 import { PedigreeGraphBoardComponent } from './components/views/pedigree-graph-board/pedigree-graph-board.component';
 import { Tree2Component } from './components/graph/tree2/tree2.component';
-import { ConfirmationDialogComponent } from './components/casual/confirmation-dialog/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +97,6 @@ import { ConfirmationDialogComponent } from './components/casual/confirmation-di
     TreeUserComponent,
     PedigreeGraphBoardComponent,
     Tree2Component,
-    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

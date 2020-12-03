@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {PedigreeService} from '../../../_services/pedigree.service'
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
-import { ConfirmationDialogComponent } from '../../casual/confirmation-dialog/confirmation-dialog.component';
 
 export interface PedigreeModel {
   _id: string;
@@ -56,14 +55,7 @@ export class PedigreeTableComponent implements OnInit {
   }
 
   openDialogConfirm(id) {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      if(result==true){
-        this.deleteTutorial(id)
-      }
-    });
+ 
 }
 
 deleteTutorial(id) {

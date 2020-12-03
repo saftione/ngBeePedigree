@@ -5,13 +5,51 @@ import { nest, values } from "d3-collection";
 import { mean, min, max, ascending } from "d3-array";
 
 import { pedigreeTree } from '@solgenomics/d3-pedigree-tree'
-
+import * as util from 'util' // has no default export
+import { inspect } from 'util' // or directly
 
 function main() {
 
-  var nodes = generate_nodes(2, 8, 2, 10);
-  console.log(nodes);
+    var nodes1 = generate_nodes(2, 2, 2, 2);
+  var nodes = [
+    {
 
+      "father": null,
+      "name" : "bs",
+      "id": 0,
+      "level": 0,
+      "mother": null,
+      "children": [
+        1
+      ]
+    },
+    {
+      "father": null,
+      "id": 1,
+      "level": 0,
+      "mother": null,
+      "children": [
+        1
+      ],
+    },
+    {
+
+      "father": 1,
+      "id": 2,
+      "level": 1,
+      "mother": 1,
+      "children": [
+      ]
+    },
+  ]
+
+  // or 
+
+
+  console.log(nodes);
+  console.log(nodes1);
+  // console.log(JSON.stringify(nodes1));
+  console.log(util.inspect(nodes1));
 
   var tree = pedigreeTree()
     .levelWidth(1000)
@@ -23,12 +61,12 @@ function main() {
     })
     .groupChildless(true)
     .iterations(0)
-    .data(nodes);
+    .data(nodes1);
 
 
-  console.log("tree", tree());
+  // console.log("tree", tree());
 
-  drawTree(tree(), ".canv", 1);
+  drawTree(tree(), ".canv", 0);
   var s = 999
   var end = false;
   var ended = false;
@@ -52,7 +90,7 @@ function main() {
     var nodes = [];
     var id = 0;
     for (var i = 0; i < num_init; i++) {
-      nodes.push({ 'mother': null, 'father': null, 'children': [], 'id': id++, 'level': 0 });
+      nodes.push({ 'mother': null, 'father': null, 'text': 'a','children': [], 'id': id++, 'level': 0 });
     }
     for (var i = 0; i < num_breedings; i++) {
       let mother = nodes[Math.floor(Math.random() * nodes.length)];
@@ -80,15 +118,22 @@ function main() {
 
     //set default change-transtion to no duration
     trans = trans || d3.transition().duration(0);
-    console.log("trans", trans)
+    // console.log("trans", trans)
     //make wrapper(pdg)
-    console.log(layout);
-    var canv = d3.select(svg_selector);
-    console.log(canv);
+    // console.log("layout", layout);
 
-    var pdg = canv.append('g').classed('pedigreeTree', true);
-    var canvw = 100;
-    var canvh = 100;
+    var canv = d3.select(svg_selector);
+
+    // console.log("canv", canv);
+    var cbbox = canv.node().getBoundingClientRect();
+    // console.log("cbbbox", cbbox);
+    var canvw = cbbox.width,
+      canvh = cbbox.height;
+    var pdg = canv.select('.pedigreeTree');
+    if (pdg.empty()) {
+      pdg = canv.append('g').classed('pedigreeTree', true);
+    }
+
     //make background
     var bg = pdg.select('.pdg-bg');
     if (bg.empty()) {

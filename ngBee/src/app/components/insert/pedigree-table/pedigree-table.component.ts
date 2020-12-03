@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PedigreeService} from '../../../_services/pedigree.service'
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../../casual/confirmation-dialog/confirmation-dialog.component';
 
 export interface PedigreeModel {
   _id: string;
@@ -27,7 +29,9 @@ export class PedigreeTableComponent implements OnInit {
   WarehouseData: any = [];
   dataSource: MatTableDataSource<PedigreeModel>;
 
-  constructor( private pedigreeService: PedigreeService,) { }
+  constructor( 
+    private pedigreeService: PedigreeService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getdata();
@@ -51,30 +55,29 @@ export class PedigreeTableComponent implements OnInit {
     console.log(this.currentRowData);
   }
 
-  deleteTutorial(id) {
-    this.pedigreeService.delete(id)
-      .subscribe(
-        response => {
-          console.log(response);
-          //this.router.navigate(['/tutorials']);
-          this.getdata()
-        },
-        error => {
-          console.log(error);
-        });
-  }
+  openDialogConfirm(id) {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
 
-  updateTutorial(id,updatedata) {
-    this.pedigreeService.update(id, updatedata)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.getdata();
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      if(result==true){
+        this.deleteTutorial(id)
+      }
+    });
+}
 
-        },
-        error => {
-          console.log(error);
-        });
-  }
+deleteTutorial(id) {
+  this.pedigreeService.delete(id)
+    .subscribe(
+      response => {
+        console.log(response);
+        //this.router.navigate(['/tutorials']);
+        this.getdata()
+      },
+      error => {
+        console.log(error);
+      });
+}
+
 
 }

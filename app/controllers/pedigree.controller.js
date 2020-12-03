@@ -44,6 +44,10 @@ exports.findAll = (req, res) => {
   var condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
 
   Pedigree.find(condition)
+  .populate({
+    path: "queen",
+    populate: { path: "queen",populate: { path: "queen",populate: { path: "queen", } } }
+  })
     .then(data => {
       res.send(data);
     })
@@ -60,6 +64,7 @@ exports.findOne = (req, res) => {
   const id = req.params.id;
 
   Pedigree.findById(id)
+
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found Tutorial with id " + id });

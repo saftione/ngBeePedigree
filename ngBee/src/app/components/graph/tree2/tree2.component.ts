@@ -126,13 +126,13 @@ return .5;
 return person._parents;
 });
 
-//d3.json(jsondata, function(error, json){
+d3.json(jsondata, function(error, data){
 
-//if(error) {
-//return console.error(error);
-//}
+if(error) {
+return console.error(error);
+}
 
-var nodes = tree.nodes(jsondata),
+var nodes = tree.nodes(data),
   links = tree.links(nodes);
 
 // Style links (edges)
@@ -168,7 +168,7 @@ node.append("text")
     return d.name; 
   });
   
-//});
+});
 
 /**
 * Custom path function that creates straight connecting lines.

@@ -219,12 +219,16 @@ function main() {
     newNodes.append('text')
       .attr('x', '14')
       .attr('y', 5)
-      .text(function (d) { return d.raw_new_sort_ypos });
+      //.text(function (d) { return d.raw_new_sort_ypos });
+      .text(function (d) { return d.id });
+
     var allNodes = newNodes.merge(nodes);
     allNodes.transition(trans).attr('transform', function (d) {
       return 'translate(' + d.x + ',' + d.y + ')'
     })
-    allNodes.select('text').text(function (d) { return d.raw_new_sort_ypos });
+    //allNodes.select('text').text(function (d) { return d.raw_new_sort_ypos });
+    //allNodes.select('text').text("Test");
+
     allNodes.filter(function (d) { return d.type == "node-group" })
       .style("cursor", "pointer")
       .on("click", function (d) {

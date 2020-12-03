@@ -12,6 +12,7 @@ import { TutorialsListComponent } from './components/test/tutorials-list/tutoria
 import { TutorialDetailsComponent } from './components/test/tutorial-details/tutorial-details.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { PedigreeComponent } from './components/insert/pedigree/pedigree.component';
+import { PedigreeGraphBoardComponent } from './components/views/pedigree-graph-board/pedigree-graph-board.component';
 
 const routes: Routes = [
   { path: 'tutorials', component: TutorialsListComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: 'pedigree', component: PedigreeComponent },
+  { path: 'pedigree', component: PedigreeGraphBoardComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -1,0 +1,88 @@
+[
+    {
+        "mother": null,
+        "father": null,
+        "children": [
+            {
+                "mother": {
+                    "mother": null,
+                    "father": null,
+                    "children": [
+                        {
+                            "$ref": "#/0/children/0"
+                        },
+                        {
+                            "mother": {
+                                "$ref": "#/0/children/0/mother"
+                            },
+                            "father": {
+                                "$ref": "#/0"
+                            },
+                            "children": [
+                                {
+                                    "mother": {
+                                        "$ref": "#/0/children/0/mother/children/1"
+                                    },
+                                    "father": {
+                                        "$ref": "#/0/children/0"
+                                    },
+                                    "children": [],
+                                    "id": 4,
+                                    "level": 2
+                                },
+                                {
+                                    "mother": {
+                                        "$ref": "#/0/children/0/mother/children/1"
+                                    },
+                                    "father": {
+                                        "$ref": "#/0/children/0"
+                                    },
+                                    "children": [],
+                                    "id": 5,
+                                    "level": 2
+                                }
+                            ],
+                            "id": 3,
+                            "level": 1
+                        }
+                    ],
+                    "id": 1,
+                    "level": 0
+                },
+                "father": {
+                    "$ref": "#/0"
+                },
+                "children": [
+                    {
+                        "$ref": "#/0/children/0/mother/children/1/children/0"
+                    },
+                    {
+                        "$ref": "#/0/children/0/mother/children/1/children/1"
+                    }
+                ],
+                "id": 2,
+                "level": 1
+            },
+            {
+                "$ref": "#/0/children/0/mother/children/1"
+            }
+        ],
+        "id": 0,
+        "level": 0
+    },
+    {
+        "$ref": "#/0/children/0/mother"
+    },
+    {
+        "$ref": "#/0/children/0"
+    },
+    {
+        "$ref": "#/0/children/0/mother/children/1"
+    },
+    {
+        "$ref": "#/0/children/0/mother/children/1/children/0"
+    },
+    {
+        "$ref": "#/0/children/0/mother/children/1/children/1"
+    }
+]

@@ -68,6 +68,9 @@ import { take, takeUntil } from 'rxjs/operators';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { TreeBoardComponent } from './components/graph/tree-board/tree-board.component';
 import { TreeBoardPedigreeComponent } from './components/graph/tree-board-pedigree/tree-board-pedigree.component';
+import { TreeGlobalComponent } from './components/graph/tree-global/tree-global.component';
+import { TreeUserComponent } from './components/graph/tree-user/tree-user.component';
+import { PedigreeGraphBoardComponent } from './components/views/pedigree-graph-board/pedigree-graph-board.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +93,9 @@ import { TreeBoardPedigreeComponent } from './components/graph/tree-board-pedigr
     PedigreeTableComponent,
     TreeBoardComponent,
     TreeBoardPedigreeComponent,
+    TreeGlobalComponent,
+    TreeUserComponent,
+    PedigreeGraphBoardComponent,
   ],
   imports: [
     BrowserModule,

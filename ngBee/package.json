@@ -30,6 +30,8 @@
     "d3": "^4",
     "d3v4": "^4.2.2",
     "jquery": "^3.5.1",
+    "json-decycle": "^1.0.0",
+    "json-schema-ref-parser": "^9.0.6",
     "ngx-mat-select-search": "^3.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

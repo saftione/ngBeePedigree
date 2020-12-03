@@ -1,0 +1,98 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.12.0/d3.js"></script>
+<script src="d3-pedigree-tree.js" charset="utf-8"></script>
+<script src="PedigreeViewer.js" charset="utf-8"></script>
+<script src="BrAPI.js" charset="utf-8"></script>
+<script type="text/javascript">
+;(function(){
+
+$(document).ready(function(){
+    $("#brapi-form").submit(function(){
+        $("#load-spin").show();
+        var form = $(this).serializeArray().reduce(function(vals,entry){
+            vals[entry.name] = entry.value
+            return vals
+        },{});
+        var auth = undefined;
+        if (form.username){
+            auth = {
+                'username':form.username,
+                'password':form.password
+            };
+        }
+        var base_url = form.server;
+        if (base_url.slice(0,8)!="https://" && base_url.slice(0,7)!="http://"){
+            base_url ="https://"+base_url;
+        }
+        if (base_url.slice(-1)!="/"){
+            base_url+="/";
+        }
+        var main_url = base_url;
+        base_url+="brapi/v1";
+        var pdg = PedigreeViewer(BrAPI(base_url,auth),function(dbId){
+            return main_url+"stock/"+dbId+"/view";
+        });
+        pdg.newTree(form.germplasm).then(function(){
+            $("#load-spin").hide();
+        });
+
+        pdg.drawViewer("#pdgv-wrap",800,400);
+        
+        pdg.data(function(germplasmDbId){
+            return [
+                {name:"germplasmDbId",values:[
+                    {value:germplasmDbId,color:"#ffb3ba"}
+                ]}
+             ];
+         });
+        
+        // var mkrs = [
+        //     {value:"A",color:"#ffb3ba"},
+        //     {value:"T",color:"#baffc9"},
+        //     {value:"G",color:"#bae1ff"},
+        //     {value:"C",color:"#ffffba"}
+        // ];
+        // 
+        // var rfs = [
+        //     {value:"REF",color:"#EEE"},
+        //     {value:"VAR",color:"#999"}
+        // ];
+        // 
+        // console.log([
+        //     {name:"Marker:4:12202:REF",values:[
+        //         randCh(rfs)
+        //     ]},
+        //     {name:"Marker:3:04993:GT",values:[
+        //         randCh(mkrs),
+        //         randCh(mkrs)
+        //     ]},
+        //     {name:"Marker:3:05002:GT",values:[
+        //         randCh(mkrs)
+        //     ]}
+        //  ])
+        // 
+        // pdg.data(function(germplasmDbId){
+        //     return [
+        //         {name:"Marker:4:12202:REF",values:[
+        //             randCh(rfs)
+        //         ]},
+        //         {name:"Marker:3:04993:GT",values:[
+        //             randCh(mkrs),
+        //             randCh(mkrs)
+        //         ]},
+        //         {name:"Marker:3:05002:GT",values:[
+        //             randCh(mkrs)
+        //         ]}
+        //      ];
+        //  });
+        // 
+        //  function randCh(arr){
+        //      return arr[Math.floor(Math.random()*arr.length)]
+        //  }
+        
+        return false;
+    });
+    
+});
+})();
+</script>

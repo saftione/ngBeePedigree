@@ -27,7 +27,7 @@
     "@solgenomics/d3-pedigree-tree": "^1.1.1",
     "@swimlane/ngx-graph": "^7.2.0",
     "angular-svg-icon": "^11.0.0",
-    "d3": "^4",
+    "d3": "^3.5.5",
     "d3v4": "^4.2.2",
     "jquery": "^3.5.1",
     "json-decycle": "^1.0.0",

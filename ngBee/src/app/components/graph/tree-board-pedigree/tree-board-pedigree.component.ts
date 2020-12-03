@@ -181,14 +181,14 @@ function main() {
   function generate_nodes(num_init, num_breedings, min_children, max_children) {
     var nodes = [];
 
-    console.log("nodes1", nodes);
+   // console.log("nodes1",nodes);
     var id = 0;
     for (var i = 0; i < num_init; i++) {
       nodes.push({ 'mother': null, 'father': null, 'children': [], 'id': id++, 'level': 0 });
     }
     for (var i = 0; i < num_breedings; i++) {
       let mother = nodes[Math.floor(Math.random() * nodes.length)];
-      console.log("mother", mother);
+     // console.log("mother", mother);
       let father = mother;
       while (father == mother || (father.level !== mother.level)) {
         father = nodes[Math.floor(Math.random() * nodes.length)];
@@ -318,7 +318,7 @@ function main() {
       .attr('x', '14')
       .attr('y', 5)
       //.text(function (d) { return d.raw_new_sort_ypos });
-      .text(function (d) { return d.id });
+      .text(function (d) { return 'B' + d.id });
 
     var allNodes = newNodes.merge(nodes);
     allNodes.transition(trans).attr('transform', function (d) {

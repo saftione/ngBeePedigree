@@ -71,6 +71,7 @@ import { TreeBoardPedigreeComponent } from './components/graph/tree-board-pedigr
 import { TreeGlobalComponent } from './components/graph/tree-global/tree-global.component';
 import { TreeUserComponent } from './components/graph/tree-user/tree-user.component';
 import { PedigreeGraphBoardComponent } from './components/views/pedigree-graph-board/pedigree-graph-board.component';
+import { Tree2Component } from './components/graph/tree2/tree2.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { PedigreeGraphBoardComponent } from './components/views/pedigree-graph-b
     TreeGlobalComponent,
     TreeUserComponent,
     PedigreeGraphBoardComponent,
+    Tree2Component,
   ],
   imports: [
     BrowserModule,

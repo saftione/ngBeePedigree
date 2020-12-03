@@ -1,148 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3v4'
-import { scaleLinear } from "d3-scale";
-import { nest, values } from "d3-collection";
-import { mean, min, max, ascending } from "d3-array";
-
 import { pedigreeTree } from '@solgenomics/d3-pedigree-tree'
-import * as util from 'util' // has no default export
-import { inspect } from 'util' // or directly
-var jsonDecycle = require('json-decycle')
-var decycle = require('json-decycle').decycle
-var jsonDecycle = require('json-decycle')
 
 function main() {
 
-  var nodes1 = generate_nodes(8, 16, 2, 2);
-  var nodes4 = [
+  var nodes = generate_nodes(2,29,2,10);
 
-    {
-      "mother": null,
-      "father": null,
-      "children": [{
-        "mother": 0,
-        "father": null,
-        "children": {},
-        "id": 1,
-        "level": 1
-      }],
-      "id": 0,
-      "level": 0
-    },
-    {
-      "mother": [{
-        "mother": null,
-        "father": null,
-        "children": [{
-        }],
-        "id": 0,
-        "level": 0
-      }],
-      "father": null,
-      "children": {},
-      "id": 1,
-      "level": 1
-    }
-  ]
-
-  var nodes = [
-    {
-      "mother": null,
-      "father": null,
-      "children": [
-        {
-          "mother": {
-            "mother": null,
-            "father": null,
-            "children": [
-              {
-                "$ref": "#/0/children/0"
-              },
-              {
-                "mother": {
-                  "$ref": "#/0/children/0/mother"
-                },
-                "father": {
-                  "$ref": "#/0"
-                },
-                "children": [
-                  {
-                    "mother": {
-                      "$ref": "#/0/children/0/mother/children/1"
-                    },
-                    "father": {
-                      "$ref": "#/0/children/0"
-                    },
-                    "children": [],
-                    "id": 4,
-                    "level": 2
-                  },
-                  {
-                    "mother": {
-                      "$ref": "#/0/children/0/mother/children/1"
-                    },
-                    "father": {
-                      "$ref": "#/0/children/0"
-                    },
-                    "children": [],
-                    "id": 5,
-                    "level": 2
-                  }
-                ],
-                "id": 3,
-                "level": 1
-              }
-            ],
-            "id": 1,
-            "level": 0
-          },
-          "father": {
-            "$ref": "#/0"
-          },
-          "children": [
-            {
-              "$ref": "#/0/children/0/mother/children/1/children/0"
-            },
-            {
-              "$ref": "#/0/children/0/mother/children/1/children/1"
-            }
-          ],
-          "id": 2,
-          "level": 1
-        },
-        {
-          "$ref": "#/0/children/0/mother/children/1"
-        }
-      ],
-      "id": 0,
-      "level": 0
-    },
-    {
-      "$ref": "#/0/children/0/mother"
-    },
-    {
-      "$ref": "#/0/children/0"
-    },
-    {
-      "$ref": "#/0/children/0/mother/children/1"
-    },
-    {
-      "$ref": "#/0/children/0/mother/children/1/children/0"
-    },
-    {
-      "$ref": "#/0/children/0/mother/children/1/children/1"
-    }
-  ]
-
-
-  console.log("selber string", nodes4);
-  // console.log(nodes1);
-  // //console.log(JSON.stringify(nodes1));
-  // // console.log(util.inspect(nodes1));
-  // var result = JSON.stringify(nodes1, decycle())
-  // console.log(result);
-  //var node3 = resolveReferences(nodes4);
-  // console.log("selber string2", node3);
   var tree = pedigreeTree()
     .levelWidth(1000)
     .nodePadding(100)
@@ -152,8 +15,8 @@ function main() {
       return [d.mother, d.father].filter(Boolean);
     })
     .groupChildless(true)
-    .iterations(3)
-    .data(nodes1);
+    .iterations(8)
+    .data(nodes);
 
 
   // console.log("tree", tree());
@@ -181,14 +44,14 @@ function main() {
   function generate_nodes(num_init, num_breedings, min_children, max_children) {
     var nodes = [];
 
-   // console.log("nodes1",nodes);
+    console.log("nodes1", nodes);
     var id = 0;
     for (var i = 0; i < num_init; i++) {
       nodes.push({ 'mother': null, 'father': null, 'children': [], 'id': id++, 'level': 0 });
     }
     for (var i = 0; i < num_breedings; i++) {
       let mother = nodes[Math.floor(Math.random() * nodes.length)];
-     // console.log("mother", mother);
+      console.log("mother", mother);
       let father = mother;
       while (father == mother || (father.level !== mother.level)) {
         father = nodes[Math.floor(Math.random() * nodes.length)];
@@ -318,7 +181,7 @@ function main() {
       .attr('x', '14')
       .attr('y', 5)
       //.text(function (d) { return d.raw_new_sort_ypos });
-      .text(function (d) { return 'B' + d.id });
+      .text(function (d) { return d.id });
 
     var allNodes = newNodes.merge(nodes);
     allNodes.transition(trans).attr('transform', function (d) {
@@ -387,25 +250,16 @@ function main() {
   }
 }
 @Component({
-  selector: 'app-tree-board-pedigree',
-  templateUrl: './tree-board-pedigree.component.html',
-  styleUrls: ['./tree-board-pedigree.component.css']
+  selector: 'app-tree',
+  templateUrl: './tree.component.html',
+  styleUrls: ['./tree.component.css']
 })
-export class TreeBoardPedigreeComponent implements OnInit {
+export class TreeComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
-
     main();
-
-
-
   }
 
 }
-
-
-
-

@@ -236,19 +236,17 @@ function main() {
 
 
 }
-
 @Component({
-  selector: 'app-tree2',
-  templateUrl: './tree2.component.html',
-  styleUrls: ['./tree2.component.css']
+  selector: 'app-tree-user',
+  templateUrl: './tree-user.component.html',
+  styleUrls: ['./tree-user.component.css']
 })
-export class Tree2Component implements OnInit {
+export class TreeUserComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
     main();
-    // jsondata2(jsondata);
   }
 
 }

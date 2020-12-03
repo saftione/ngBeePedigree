@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {PedigreeService} from '../../../_services/pedigree.service'
-import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
-import { ConfirmationDialogComponent } from '../../casual/confirmation-dialog/confirmation-dialog.component';
 
+import { PedigreeService } from '../../../_services/pedigree.service'
+import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { MatDialog, MatDialogModule, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../../casual/confirmation-dialog/confirmation-dialog.component';
+import { DialogPedigreeComponent } from '../dialog-pedigree/dialog-pedigree.component';
+const USER_KEY = 'auth-user';
 export interface PedigreeModel {
   _id: string;
   name: string;
@@ -11,7 +13,7 @@ export interface PedigreeModel {
   fertilization: string;
   fertilizationDate: Date,
   properties: string,
-  queen:string;
+  queen: string;
   drone: string;
   description: String,
   published: Boolean
@@ -25,18 +27,18 @@ export interface PedigreeModel {
 export class PedigreeTableComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['name', 'properties'];
+  displayedColumns: string[] = ['name', 'breeder','properties'];
   WarehouseData: any = [];
   dataSource: MatTableDataSource<PedigreeModel>;
 
-  constructor( 
+  constructor(
     private pedigreeService: PedigreeService,
     public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getdata();
   }
-  getdata(){
+  getdata() {
     this.pedigreeService.getAll().subscribe(data => {
       this.WarehouseData = data;
       console.log(data);
@@ -60,24 +62,105 @@ export class PedigreeTableComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      if(result==true){
+      if (result == true) {
         this.deleteTutorial(id)
       }
     });
-}
+  }
+  saveTutorial(data) {
+    this.pedigreeService.create(data)
+      .subscribe(
+        response => {
+          console.log(response);
+          //this.getAllReports()
+        },
+        error => {
+          console.log(error);
+        });
+  }
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    const userKey = JSON.parse(sessionStorage.getItem(USER_KEY));
 
-deleteTutorial(id) {
-  this.pedigreeService.delete(id)
-    .subscribe(
-      response => {
-        console.log(response);
-        //this.router.navigate(['/tutorials']);
-        this.getdata()
-      },
-      error => {
-        console.log(error);
-      });
-}
+
+    dialogConfig.data = {
+      id: '',
+      type: '1',
+      name: '',
+      breeder: '',
+      fertilization: '',
+      fertilizationDate: '',
+      properties: '',
+      queen: '',
+      drones: '',
+      description: '',
+      published: '',
+      user: userKey.id
+    };
+
+    const dialogRef = this.dialog.open(DialogPedigreeComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      //data => console.log("Dialog output:", data),
+      data => this.saveTutorial(data)
+    );
+  }
+
+  openDialogUpdate(updatedata) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    const vari = JSON.parse(sessionStorage.getItem(USER_KEY));
+
+    dialogConfig.data = {
+      id: updatedata.id,
+      type: updatedata.type,
+      name: updatedata.name,
+      breeder:  updatedata.breeder,
+      fertilization:  updatedata.fertilization,
+      fertilizationDate:  updatedata.fertilizationDate,
+      properties:  updatedata.properties,
+      queen:  updatedata.queen,
+      drones:  updatedata.drones,
+      description:  updatedata.description,
+      published:  updatedata.published,
+      user: vari.id
+    };
+
+    const dialogRef = this.dialog.open(DialogPedigreeComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      //data => console.log("Dialog output:", data),
+      data => this.updateTutorial(data.id,data)
+    );
+  }
+  updateTutorial(id,updatedata) {
+    this.pedigreeService.update(id, updatedata)
+      .subscribe(
+        response => {
+          console.log(response);
+         // this.getAllReports();
+
+        },
+        error => {
+          console.log(error);
+        });
+  }
+  deleteTutorial(id) {
+    this.pedigreeService.delete(id)
+      .subscribe(
+        response => {
+          console.log(response);
+          //this.router.navigate(['/tutorials']);
+          this.getdata()
+        },
+        error => {
+          console.log(error);
+        });
+  }
 
 
 }

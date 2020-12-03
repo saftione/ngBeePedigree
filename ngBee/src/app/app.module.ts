@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { NgxGraphModule } from '@swimlane/ngx-graph';
+
 import { CommonModule } from '@angular/common';
 //Components
 import { AppComponent } from './app.component';
@@ -118,7 +118,6 @@ import { ConfirmationDialogComponent } from './components/casual/confirmation-di
     MatSelectModule,
     MatFormFieldModule,
     NgxMatSelectSearchModule,
-    NgxGraphModule,
     CommonModule,
 
     BrowserModule,
@@ -156,6 +155,16 @@ import { ConfirmationDialogComponent } from './components/casual/confirmation-di
     MatBadgeModule,
 
   ],
+  exports: [
+    MatTabsModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule,
+  ],
+  entryComponents: [PedigreeTableComponent],
   providers: [ authInterceptorProviders],
   bootstrap: [AppComponent]
 })

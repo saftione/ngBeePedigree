@@ -9,7 +9,8 @@ function main() {
 
 
   var jsondata = {
-    "name": "Maude Fernandez",
+    "name": "B1",
+    "breeder": 'FT',
     "id": "06ada7cd-3078-54bc-bb87-72e9d6f38abf",
     "_parents": [
       {
@@ -35,11 +36,11 @@ function main() {
             "id": "06c7b0cb-cd21-53be-81bd-9b088af96904",
             "_parents": [
               {
-                "name": "Lelia Hernandez",
+                "name": "B2",
                 "id": "667d2bb6-c26e-5881-9bdc-7ac9805f96c2"
               },
               {
-                "name": "Randy Welch",
+                "name": "B1",
                 "id": "104039bb-d353-54a9-a4f2-09fda08b58bb"
               }
             ]
@@ -196,7 +197,7 @@ function main() {
       .attr("text-anchor", "start")
       .attr('class', 'name')
       .text(function (d) {
-        return d.name;
+        return d.name + d.breeder;
       });
   };
 

@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 //Components
 import { AppComponent } from './app.component';
@@ -116,6 +116,7 @@ import { Tree2Component } from './components/graph/tree2/tree2.component';
     MatFormFieldModule,
     NgxMatSelectSearchModule,
     CommonModule,
+    FlexLayoutModule,
 
     BrowserModule,
     BrowserAnimationsModule,

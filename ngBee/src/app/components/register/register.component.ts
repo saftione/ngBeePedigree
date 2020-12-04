@@ -6,7 +6,7 @@ import { AuthService } from '../../_services/login/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent  {
 
   form: any = {};
   isSuccessful = false;
@@ -15,8 +15,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-  }
 
   onSubmit(): void {
     this.authService.register(this.form).subscribe(

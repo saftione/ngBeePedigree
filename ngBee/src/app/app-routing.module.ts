@@ -11,7 +11,7 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { TutorialsListComponent } from './components/test/tutorials-list/tutorials-list.component';
 import { TutorialDetailsComponent } from './components/test/tutorial-details/tutorial-details.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
-import { PedigreeComponent } from './components/insert/pedigree/pedigree.component';
+
 import { PedigreeGraphBoardComponent } from './components/views/pedigree-graph-board/pedigree-graph-board.component';
 
 const routes: Routes = [

@@ -4,7 +4,7 @@
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
-      <span><a routerLink="#" mat-button><img width="50px" [src]=bild1>Beepedigree</a></span>
+      <span><a routerLink="#" mat-button><img width="30px" [src]=bild1>Beepedigree</a></span>
 
       <span class="example-spacer">
       </span>
@@ -46,23 +46,19 @@
     <mat-sidenav #sidenav>
       <mat-nav-list>
 
-        <a routerLink="home" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Home </a>
+        <a routerLink="home" *ngIf="showAdminBoard" mat-list-item  routerLinkActive="active">Home </a>
 
-        <a routerLink="storage" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Storage</a>
 
-        <a routerLink="masterdata" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Masterdata</a>
+        <a routerLink="admin" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Admin Board</a>
 
-        <a routerLink="kontrakte" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Kontrakte</a>
 
-        <a routerLink="upload" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Upload</a>
+        <a routerLink="mod" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Moderator Board</a>
 
-        <a routerLink="analysis" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Analysis</a>
-        <!--  Test side-->
-        <a routerLink="tutorials" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Tutorials</a>
 
-        <a routerLink="todo" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">todo</a>
+        <a routerLink="user" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">User</a>
 
-        <a routerLink="benefits" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Voko</a>
+
+        <a routerLink="pedigree" *ngIf="showAdminBoard" mat-list-item routerLinkActive="active">Pedigree</a>
 
 
         <!-- IF NOT logged in -->

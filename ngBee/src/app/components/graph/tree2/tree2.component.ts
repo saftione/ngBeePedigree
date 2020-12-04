@@ -177,12 +177,12 @@ function main() {
 
   var svg = d3.select("#stammbaum").append("svg")
     .attr('width', 1000)
-    .attr('height', 500)
+    .attr('height', 800)
     .call(zoom)
     .append('g')
     // Left padding of tree so that the whole root node is on the screen.
     // TODO: find a better way
-    .attr("transform", "translate(150,200)");
+    .attr("transform", "translate(150,400)");
 
   var tree = d3.layout.tree()
     // Using nodeSize we are able to control

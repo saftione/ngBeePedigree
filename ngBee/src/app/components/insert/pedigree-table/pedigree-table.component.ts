@@ -52,7 +52,9 @@ export class PedigreeTableComponent implements OnInit {
   ngOnInit() {
     this.getdata();
 
+
   }
+
 
   getdata() {
     this.pedigreeService.getAll().subscribe(data => {

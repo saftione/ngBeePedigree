@@ -5,7 +5,7 @@
 
 
       <h1>Meine Bienen</h1>
-      <table mat-table [dataSource]="dataSource">
+      <table mat-table [dataSource]="dataSource"   matSort  >
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -80,13 +80,13 @@
 <br>
 <br>
 
-        <button class="btn btn-warning" (click)=" openDialogUpdate(currentRowData)">
+        <button class="btn btn-warning" (click)=" openDialogUpdate(currentRowData)" style="margin-left:10px; margin-right:10px">
           Edit
         </button>
-        <button class="btn btn-danger" (click)="deleteTutorial(currentRowData.id)">
+        <button class="btn btn-danger" (click)="deleteTutorial(currentRowData.id)" style="margin-left:10px; margin-right:10px">
           Delete
         </button>
-        <button class="btn btn-info">
+        <button class="btn btn-info" style="margin-left:10px; margin-right:10px">
           Export Pedigree
         </button>
       </div>
@@ -94,7 +94,7 @@
 
       <div *ngIf="!currentRowData">
         <br />
-        <p>Please click on a Bee...</p>
+        <h1>Please click on a Bee...</h1>
       </div>
     </div>
     <div class="col-12 col-md-2  mat-card">

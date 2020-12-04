@@ -12,7 +12,7 @@ module.exports = mongoose => {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'fertilization'
       },
-      fertilizationDate: Date,
+      fertilizationDate: String,
       properties: String,
       queen: {
         type: mongoose.Schema.Types.ObjectId,

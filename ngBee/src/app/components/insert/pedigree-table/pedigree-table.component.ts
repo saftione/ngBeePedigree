@@ -1,9 +1,11 @@
 
 import { PedigreeService } from '../../../_services/pedigree.service'
 import { MatTableDataSource } from '@angular/material/table';
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject,AfterViewInit, } from '@angular/core';
 import { MatDialog, MatDialogModule, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogPedigreeComponent } from '../dialog-pedigree/dialog-pedigree.component';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 const USER_KEY = 'auth-user';
 
 export interface PedigreeModel {
@@ -31,18 +33,26 @@ export class PedigreeTableComponent implements OnInit {
   WarehouseData: any = [];
   dataSource: MatTableDataSource<PedigreeModel>;
 
+
   constructor(
     private pedigreeService: PedigreeService,
     public dialog: MatDialog) { }
 
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
     this.getdata();
+
   }
+
   getdata() {
     this.pedigreeService.getAll().subscribe(data => {
       this.WarehouseData = data;
       console.log(data);
       this.dataSource = new MatTableDataSource<PedigreeModel>(this.WarehouseData);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+
 
     })
   }
@@ -63,7 +73,7 @@ export class PedigreeTableComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          //this.getAllReports()
+          this.getdata()
         },
         error => {
           console.log(error);
@@ -78,7 +88,6 @@ export class PedigreeTableComponent implements OnInit {
 
     dialogConfig.data = {
       id: '',
-      type: '1',
       name: '',
       breeder: '',
       fertilization: '',
@@ -108,9 +117,8 @@ export class PedigreeTableComponent implements OnInit {
 
     dialogConfig.data = {
       id: updatedata.id,
-      type: updatedata.type,
       name: updatedata.name,
-      breeder:  updatedata.breeder,
+      breeder:  updatedata.breeder._id,
       fertilization:  updatedata.fertilization,
       fertilizationDate:  updatedata.fertilizationDate,
       properties:  updatedata.properties,
@@ -133,7 +141,7 @@ export class PedigreeTableComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-         // this.getAllReports();
+          this.getdata();
 
         },
         error => {

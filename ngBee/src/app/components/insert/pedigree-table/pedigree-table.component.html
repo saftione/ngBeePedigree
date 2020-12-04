@@ -1,11 +1,10 @@
-
 <div class="container">
 
   <div class="row">
-    <div class="col">
+    <div class="col-12 col-md-6">
 
-
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <h1>Meine Bienen</h1>
+      <table mat-table [dataSource]="dataSource">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -16,44 +15,78 @@
         </ng-container>
         <ng-container matColumnDef="breeder">
           <th mat-header-cell *matHeaderCellDef> Breeder </th>
-          <td mat-cell *matCellDef="let element"> {{element.breeder}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.breeder.shortName}} </td>
         </ng-container>
         <ng-container matColumnDef="properties">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.properties}} </td>
+          <th mat-header-cell *matHeaderCellDef> year </th>
+          <td mat-cell *matCellDef="let element"> {{element.fertilizationDate}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; let i = index; columns: displayedColumns;" (click)="setActiveRow(row, i)"></tr>
+        <tr mat-row *matRowDef="let row; let i = index; columns: displayedColumns;" (click)="setActiveRow(row, i)">
+        </tr>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
     </div>
-    <div class="col-md-auto">
+
+
+    <div class="col-12 col-md-5">
       <div *ngIf="currentRowData">
-        <h4>Tutorial</h4>
+        <h4>Bee Pedigree -- {{ currentRowData.name }}</h4>
         <div>
-          <label><strong>Title:</strong></label> {{ currentRowData[0] }}
+          <label><strong>Breeder:</strong></label> {{ currentRowData.breeder.shortName }}
         </div>
         <div>
-          <label><strong>Description:</strong></label>
-          {{ currentRowData.description }}
+          <label><strong>Eigenschaften:</strong></label>
+          {{ currentRowData.properties }}
         </div>
         <div>
           <label><strong>Status:</strong></label>
           {{ currentRowData.published ? "Published" : "Pending" }}
+          <div *ngIf="!currentRowData.published">
+            <p>Das Pedigree wird bearbeitet</p>
+          </div>
+        </div>
+        <div>
+          <label><strong>Pedigree</strong></label>
+          <div class="row">
+            <div class="col">
+              <h1>{{ currentRowData.name }} =</h1>
+            </div>
+            <div class="col">
+              {{ currentRowData.name }}({{ currentRowData.breeder.shortName }})=imq.{{ currentRowData.fertilizationDate }}
+              :
+              {{ currentRowData.queen.name }}({{ currentRowData.queen.breeder.shortName }})=imq.{{ currentRowData.queen.fertilizationDate }}
+              :
+            </div>
+            <div class="col">
+              {{ currentRowData.queen.queen.name }}({{ currentRowData.queen.queen.breeder.shortName }})=imq.{{ currentRowData.queen.queen.fertilizationDate }}
+              :
+              {{ currentRowData.queen.queen.queen.name }}({{ currentRowData.queen.queen.queen.breeder.shortName }})=imq.{{ currentRowData.queen.queen.queen.fertilizationDate }}
+              :
+            </div>
+
+          </div>
+
         </div>
 
-        <a class="badge badge-warning" (click)=" openDialogUpdate(currentRowData)">
+        <a class="btn btn-primary" (click)=" openDialogUpdate(currentRowData)">
           Edit
         </a>
-        <a class="badge badge-danger" (click)="deleteTutorial(currentRowData.id)">
+        <a class="btn btn-danger" (click)="deleteTutorial(currentRowData.id)">
           Delete
         </a>
       </div>
+
+
+      <div *ngIf="!currentRowData">
+        <br />
+        <p>Please click on a Bee...</p>
+      </div>
     </div>
-    <div class="col col-lg-1">
+    <div class="col-12 col-md-1">
       <div class="mat-elevation-z8">
         <div class="sideleft">
           <button mat-raised-button (click)="openDialog()">
@@ -63,8 +96,6 @@
           </button>
         </div>
 
+      </div>
     </div>
   </div>
-</div>
-
-

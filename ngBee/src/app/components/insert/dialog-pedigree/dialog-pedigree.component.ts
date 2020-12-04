@@ -21,15 +21,15 @@ export class DialogPedigreeComponent {
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<PedigreeComponent>,
-    @Inject(MAT_DIALOG_DATA) { id, type, name , user, breeder,fertilization,fertilizationDate,properties,queen,drones,description,published}: Storage) {
+    @Inject(MAT_DIALOG_DATA) { id, name , user, breeder,fertilization,fertilizationDate,properties,queen,drones,description,published}: Storage) {
 
       //  wenn auslagerung dann mit kontrakt nr
-    if (type == 2) {
+
       this.form = fb.group({
         id: id,
         name:name,
         user: user,
-        breeder: breeder,
+        breeder: '5fc9745aed80f00a98a390a0',
         fertilization: fertilization,
         fertilizationDate: fertilizationDate,
         properties:properties,
@@ -38,21 +38,8 @@ export class DialogPedigreeComponent {
         description: description,
         published: published
       });
-    } else {
-      this.form = fb.group({
-        id: id,
-        name: name,
-        user: user,
-        breeder: breeder,
-        fertilization: fertilization,
-        fertilizationDate: fertilizationDate,
-        properties:properties,
-        queen: queen,
-        drones: drones,
-        description: description,
-        published: published
-      });
-    }
+
+
 
 
   }

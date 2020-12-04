@@ -1,11 +1,11 @@
 
 import { PedigreeService } from '../../../_services/pedigree.service'
 import { MatTableDataSource } from '@angular/material/table';
-import { Component, OnInit, ViewChild, Inject,AfterViewInit, } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, AfterViewInit, } from '@angular/core';
 import { MatDialog, MatDialogModule, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogPedigreeComponent } from '../dialog-pedigree/dialog-pedigree.component';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 const USER_KEY = 'auth-user';
 
 export interface PedigreeModel {
@@ -27,9 +27,18 @@ export interface PedigreeModel {
   styleUrls: ['./pedigree-table.component.css']
 })
 export class PedigreeTableComponent implements OnInit {
+  div1: boolean = false;
+  div2: boolean = false;
+  div1Function() {
+    this.div1 = true;
+    this.div2 = false;
+  }
+  div2Function() {
+    this.div1 = false;
+    this.div2 = true;
+  }
 
-
-  displayedColumns: string[] = ['name', 'breeder','properties'];
+  displayedColumns: string[] = ['name', 'breeder', 'properties'];
   WarehouseData: any = [];
   dataSource: MatTableDataSource<PedigreeModel>;
 
@@ -38,8 +47,8 @@ export class PedigreeTableComponent implements OnInit {
     private pedigreeService: PedigreeService,
     public dialog: MatDialog) { }
 
-    @ViewChild(MatPaginator) paginator: MatPaginator;
-    @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
     this.getdata();
 
@@ -118,14 +127,14 @@ export class PedigreeTableComponent implements OnInit {
     dialogConfig.data = {
       id: updatedata.id,
       name: updatedata.name,
-      breeder:  updatedata.breeder._id,
-      fertilization:  updatedata.fertilization,
-      fertilizationDate:  updatedata.fertilizationDate,
-      properties:  updatedata.properties,
-      queen:  updatedata.queen,
-      drones:  updatedata.drones,
-      description:  updatedata.description,
-      published:  updatedata.published,
+      breeder: updatedata.breeder._id,
+      fertilization: updatedata.fertilization,
+      fertilizationDate: updatedata.fertilizationDate,
+      properties: updatedata.properties,
+      queen: updatedata.queen,
+      drones: updatedata.drones,
+      description: updatedata.description,
+      published: updatedata.published,
       user: vari.id
     };
 
@@ -133,10 +142,10 @@ export class PedigreeTableComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       //data => console.log("Dialog output:", data),
-      data => this.updateTutorial(data.id,data)
+      data => this.updateTutorial(data.id, data)
     );
   }
-  updateTutorial(id,updatedata) {
+  updateTutorial(id, updatedata) {
     this.pedigreeService.update(id, updatedata)
       .subscribe(
         response => {

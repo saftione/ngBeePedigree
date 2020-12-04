@@ -5,11 +5,11 @@
 
 This project uses the following data sources and technologies to build an Pedigree for Bees
 
-  *[Angular 11](https://angular.io/)
-  *[Express]
-  *[MongoDB]
-  *[d3]
-  *[d3-pedigree-tree ](https://github.com/solgenomics/d3-pedigree-tree)
+  * [Angular 11](https://angular.io/)
+  * [Express]
+  * [MongoDB]
+  * [d3]
+  * [d3-pedigree-tree ](https://github.com/solgenomics/d3-pedigree-tree)
 
 
 ## Demo

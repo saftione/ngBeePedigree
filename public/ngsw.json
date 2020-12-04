@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1607102789192,
+  "timestamp": 1607103516854,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "/index.html",
-        "/main.a167b2edb9977c3668bf.js",
+        "/main.de13048e66f6af8b606e.js",
         "/manifest.webmanifest",
         "/polyfills.ff5a9919bdde3de63cac.js",
         "/runtime.359d5ee4682f20e936e9.js",
@@ -31,9 +31,6 @@
         "/assets/biene.png",
         "/assets/biene2.png",
         "/assets/favicon.ico",
-        "/assets/hintergrund.jpg",
-        "/assets/hintergrund2.jpg",
-        "/assets/hintergrund3.jpg",
         "/assets/hintergrund4.png",
         "/assets/icons/biene128.png",
         "/assets/icons/biene144.png",
@@ -55,9 +52,6 @@
     "/assets/biene.png": "8dae62896f63fd16a9dc2848fdf5d22729b6b1a5",
     "/assets/biene2.png": "ed72c8b0c1cd619d019d97c6d0ea3628a6565111",
     "/assets/favicon.ico": "c843c8118c69c79feb64cb3e9e89ffa7242f8c0e",
-    "/assets/hintergrund.jpg": "d0ee025ac43e420d7495b40de0fda075793b6e66",
-    "/assets/hintergrund2.jpg": "93ffa7aa5f798cb254f9674efb0b8d210390810d",
-    "/assets/hintergrund3.jpg": "78d02aa05db940a03cb744407b1b8df5fcde3899",
     "/assets/hintergrund4.png": "a4427062c48aaa12cd708ba2c455eac814e5f03b",
     "/assets/icons/biene128.png": "f00458d6797fb8f39f46dd3981c769ccd5e5af5a",
     "/assets/icons/biene144.png": "5122166e59c5e2a5dc368e3774e4c353adb4b7d7",
@@ -70,8 +64,8 @@
     "/assets/pedigree.png": "865d7a7aa5b486c911ae762523e8a2f727e7a67c",
     "/assets/pwa.jpeg": "2052e3bc32b4b948f6db2e91f4227137a71ccfbf",
     "/assets/tree.png": "80c001ac0fcac861faaa50ef6fe8fda91bdfe9f1",
-    "/index.html": "eea33e8e7fdca8d2d80f71546fd28382b7090c6e",
-    "/main.a167b2edb9977c3668bf.js": "665a054252ff2750875083dbccee35f1df8725da",
+    "/index.html": "81767ecd4dc33c9bca6cfdfb398587443b7aa0b5",
+    "/main.de13048e66f6af8b606e.js": "085601c2abefe1287d28b8cd42082a463c369f03",
     "/manifest.webmanifest": "f2adafc1f166aee2179826dd95863aae5e7d1140",
     "/polyfills.ff5a9919bdde3de63cac.js": "0d003992512d28c544b0a972ce2ae6b28ebbf5f6",
     "/runtime.359d5ee4682f20e936e9.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",

@@ -38,7 +38,7 @@ export class PedigreeTableComponent implements OnInit {
     this.div2 = true;
   }
 
-  displayedColumns: string[] = ['name', 'breeder', 'properties','action'];
+  displayedColumns: string[] = ['name', 'breeder', 'properties'];
   WarehouseData: any = [];
   dataSource: MatTableDataSource<PedigreeModel>;
 

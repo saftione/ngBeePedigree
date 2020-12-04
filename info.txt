@@ -5,7 +5,7 @@ npm run dev
 
 ng serve --port 8081
 ng build --prod
-http-server -p 8081 -c-1 dist/ngApp
+http-server -p 8081 -c-1 ../public
 
 npm install express mongoose body-parser cors jsonwebtoken bcryptjs --save
 npm install -g nodemon

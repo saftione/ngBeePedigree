@@ -4,8 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require('path');
 
-// 0 = deploy
-var flag = 0;
+
 
 const app = express();
 

@@ -8,21 +8,11 @@ const path = require('path');
 
 const app = express();
 
-var corsOptions = {
-  //origin: "http://127.0.0.1:8081"
-  origin: "http://localhost:8081" 
-};
 
-// 0 = deploy
-var flag = 0;
-if (flag == 1) {
-  app.use(cors(corsOptions));
-} if (flag == 0) {
-  app.use(cors());
-  // Set Static Folder
-  app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-}
 
 
 

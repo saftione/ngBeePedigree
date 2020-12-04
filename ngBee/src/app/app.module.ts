@@ -9,6 +9,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 //Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -165,7 +166,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatMenuModule,
   ],
   entryComponents: [PedigreeTableComponent],
-  providers: [ authInterceptorProviders],
+  providers: [ authInterceptorProviders,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

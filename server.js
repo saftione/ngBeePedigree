@@ -8,11 +8,21 @@ const path = require('path');
 
 const app = express();
 
+var corsOptions = {
+  //origin: "http://127.0.0.1:8081"
+  origin: "http://localhost:8081" 
+};
 
-app.use(cors());
-// Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+// 0 = deploy
+var flag = 0;
+if (flag == 1) {
+  app.use(cors(corsOptions));
+} if (flag == 0) {
+  app.use(cors());
+  // Set Static Folder
+  app.use(express.static(path.join(__dirname, 'public')));
 
+}
 
 
 
@@ -60,6 +70,8 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
+
 
 function initial() {
   Role.estimatedDocumentCount((err, count) => {

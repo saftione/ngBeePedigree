@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-12 col-md-5  mat-card">
+    <div class="col-12 col-md-4  mat-card">
 
 
       <h1>Meine Bienen</h1>
@@ -64,21 +64,19 @@
         <div>
           <label><strong>Pedigree</strong></label>
           <div class="row">
-            <div class="col">
-              <h1>{{ currentRowData.name }}({{ currentRowData.breeder?.shortName }}) =</h1>
+            <div class="col-3">
+              <b>{{ currentRowData.name }}({{ currentRowData.breeder?.shortName }})={{ currentRowData.fertilization?.shortName }}</b>
             </div>
-            <div class="col">
+            <div class="col" style="font-size: 0.9em">
 
-              {{ currentRowData.queen?.name }}({{ currentRowData.queen?.breeder?.shortName }})={{ currentRowData.queen?.fertilization?.shortName }}.{{ currentRowData.queen?.fertilizationDate }}
-              :
-              {{ currentRowData.queen?.queen?.name }}({{ currentRowData.queen?.queen?.breeder?.shortName }})={{ currentRowData.queen?.fertilization.shortName}}.{{ currentRowData.queen?.queen?.fertilizationDate }}
-              :
+             .{{ currentRowData.queen?.fertilizationDate }} -{{ currentRowData.queen?.name }}({{ currentRowData.queen?.breeder?.shortName }}) ins B4(X):
+             <br>
+             .13 -{{ currentRowData.queen?.queen?.name }}({{ currentRowData.queen?.queen?.breeder?.shortName }}) ins B3(X):
             </div>
-            <div class="col">
-              {{ currentRowData.queen?.queen?.queen?.name }}({{ currentRowData.queen?.queen?.queen?.breeder?.shortName }})={{ currentRowData.queen?.queen?.queen?.fertilization?.shortName }}.{{ currentRowData.queen?.queen?.queen?.fertilizationDate }}
-              :
-              {{ currentRowData.queen?.queen?.queen?.queen?.name }}({{ currentRowData.queen?.queen?.queen?.queen?.breeder?.shortName }})={{ currentRowData.queen?.queen?.queen?.queen?.fertilization?.shortName }}.{{ currentRowData.queen?.queen?.queen?.queen?.fertilizationDate }}
-              :
+            <div class="col"  style="font-size: 0.9em">
+              .12 -{{ currentRowData.queen?.queen?.queen?.name }}({{ currentRowData.queen?.queen?.queen?.breeder?.shortName }}) ins B2(XY):
+              <br>
+              .12 -{{ currentRowData.queen?.queen?.queen?.name }}({{ currentRowData.queen?.queen?.queen?.breeder?.shortName }}) ins B1(XY):
             </div>
 
           </div>

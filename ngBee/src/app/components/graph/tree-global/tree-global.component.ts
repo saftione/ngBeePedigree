@@ -5,7 +5,7 @@ import { pedigreeTree } from '@solgenomics/d3-pedigree-tree'
 function main() {
 
   var nodes = generate_nodes(2,29,2,10);
-
+  
   var tree = pedigreeTree()
     .levelWidth(1000)
     .nodePadding(100)

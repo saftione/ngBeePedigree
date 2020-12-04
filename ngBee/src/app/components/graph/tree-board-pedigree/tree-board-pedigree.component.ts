@@ -13,7 +13,7 @@ var jsonDecycle = require('json-decycle')
 
 function main() {
 
-  var nodes1 = generate_nodes(8, 16, 2, 2);
+  var nodes1 = generate_nodes(4, 8, 2, 2);
   var nodes4 = [
 
     {
@@ -152,7 +152,7 @@ function main() {
       return [d.mother, d.father].filter(Boolean);
     })
     .groupChildless(true)
-    .iterations(3)
+    .iterations(1)
     .data(nodes1);
 
 

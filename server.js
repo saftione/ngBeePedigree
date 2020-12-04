@@ -62,6 +62,7 @@ require("./app/routes/auth/user.routes")(app);
 require("./app/routes/turorial.routes")(app);
 require("./app/routes/pedigree.routes")(app);
 require("./app/routes/breeder.routes")(app);
+require("./app/routes/fertilization.routes")(app);
 
 
 console.log(`${db}`);

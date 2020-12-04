@@ -73,6 +73,7 @@ import { TreeUserComponent } from './components/graph/tree-user/tree-user.compon
 import { PedigreeGraphBoardComponent } from './components/views/pedigree-graph-board/pedigree-graph-board.component';
 import { Tree2Component } from './components/graph/tree2/tree2.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FertilizationSearchComponent } from './components/insert/fertilization-search/fertilization-search.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TreeUserComponent,
     PedigreeGraphBoardComponent,
     Tree2Component,
+    FertilizationSearchComponent,
   ],
   imports: [
     BrowserModule,

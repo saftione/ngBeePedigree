@@ -1,3 +1,9 @@
-<p>breeder-search works!</p>
-
-
+<div [formGroup]="address">
+  <mat-form-field>
+    <mat-label>Breeder</mat-label>
+    <mat-select formControlName="breeder">
+      <mat-option >None</mat-option>
+      <mat-option *ngFor="let pedigree of pedigrees" [value]="pedigree.id">{{pedigree.shortName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

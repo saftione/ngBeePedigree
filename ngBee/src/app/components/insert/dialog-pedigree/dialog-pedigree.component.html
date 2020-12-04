@@ -9,17 +9,14 @@
           <input matInput placeholder="Name BXXX" formControlName="name">
         </mat-form-field>
       </div>
+
       <div class="col">
-        <mat-form-field>
-          <input matInput placeholder="Breeder FT" formControlName="breeder">
-        </mat-form-field>
+        <app-breeder-search [address]="form"></app-breeder-search>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <mat-form-field>
-          <input matInput placeholder="fertilization ini" formControlName="fertilization">
-        </mat-form-field>
+        <app-fertilization-search [address]="form"></app-fertilization-search>
       </div>
       <div class="col">
         <mat-form-field>
@@ -45,7 +42,7 @@
       <app-pedigree-queen-search [address]="form"></app-pedigree-queen-search>
     </div>
     <div class="col">
-      <app-pedigree-drone-search [address]="form"></app-pedigree-drone-search>
+      <app-pedigree-drone-search ></app-pedigree-drone-search>
     </div>
   </div>
 

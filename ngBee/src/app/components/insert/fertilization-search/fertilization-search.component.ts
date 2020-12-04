@@ -2,18 +2,19 @@ import { Component, OnInit } from '@angular/core';
 
 import { Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import {BreederService} from '../../../_services/breeder.service'
+import {InsaminationService} from '../../../_services/insamination.service'
+
 
 @Component({
-  selector: 'app-breeder-search',
-  templateUrl: './breeder-search.component.html',
-  styleUrls: ['./breeder-search.component.css']
+  selector: 'app-fertilization-search',
+  templateUrl: './fertilization-search.component.html',
+  styleUrls: ['./fertilization-search.component.css']
 })
-export class BreederSearchComponent implements OnInit {
+export class FertilizationSearchComponent implements OnInit {
 
   pedigrees: any;
 
-  constructor(private pedigreeService: BreederService) { }
+  constructor(private pedigreeService: InsaminationService) { }
 
 
   @Input() address: FormGroup;

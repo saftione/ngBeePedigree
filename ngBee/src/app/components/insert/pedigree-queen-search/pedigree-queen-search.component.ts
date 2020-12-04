@@ -4,7 +4,6 @@ import { Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {PedigreeService} from '../../../_services/pedigree.service'
 
-import { PedigreeModel } from '../../../model/pedigree.model';
 
 
 @Component({

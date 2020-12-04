@@ -5,7 +5,7 @@
 
 
       <h1>Meine Bienen</h1>
-      <table mat-table [dataSource]="dataSource"   matSort  >
+      <table mat-table [dataSource]="dataSource" matSort>
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -16,7 +16,7 @@
         </ng-container>
         <ng-container matColumnDef="breeder">
           <th mat-header-cell *matHeaderCellDef> Breeder </th>
-          <td mat-cell *matCellDef="let element"> {{element.breeder.shortName}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.breeder?.shortName}} </td>
         </ng-container>
         <ng-container matColumnDef="properties">
           <th mat-header-cell *matHeaderCellDef> year </th>
@@ -26,7 +26,8 @@
           <th mat-header-cell *matHeaderCellDef> Action </th>
           <td mat-cell *matCellDef="let element; let i = index;">
             <button mat-flat-button color="accent" class="push-right" (click)="openDialogUpdate(element)">Edit</button>
-            <button mat-flat-button color="warn" class="push-right " (click)=" deleteTutorial(element.id)">Delete</button>
+            <button mat-flat-button color="warn" class="push-right "
+              (click)=" deleteTutorial(element.id)">Delete</button>
           </td>
         </ng-container>
 
@@ -64,33 +65,36 @@
           <label><strong>Pedigree</strong></label>
           <div class="row">
             <div class="col">
-              <h1>{{ currentRowData.name }} =</h1>
+              <h1>{{ currentRowData.name }}{{ currentRowData.breeder?.shortName }} =</h1>
             </div>
             <div class="col">
-              {{ currentRowData.name }}({{ currentRowData.breeder.shortName }})=imq.{{ currentRowData.fertilizationDate }}
+
+              {{ currentRowData.queen?.name }}({{ currentRowData.queen?.breeder?.shortName }})={{ currentRowData.queen?.fertilization?.shortName }}.{{ currentRowData.queen?.fertilizationDate }}
               :
-              {{ currentRowData.queen.name }}({{ currentRowData.queen.breeder.shortName }})=imq.{{ currentRowData.queen.fertilizationDate }}
+              {{ currentRowData.queen?.queen?.name }}({{ currentRowData.queen?.queen?.breeder?.shortName }})={{ currentRowData.queen?.fertilization.shortName}}.{{ currentRowData.queen?.queen?.fertilizationDate }}
               :
             </div>
             <div class="col">
-              {{ currentRowData.queen.queen.name }}({{ currentRowData.queen.queen.breeder.shortName }})=imq.{{ currentRowData.queen.queen.fertilizationDate }}
+              {{ currentRowData.queen?.queen?.queen?.name }}({{ currentRowData.queen?.queen?.queen?.breeder?.shortName }})={{ currentRowData.queen?.queen?.queen?.fertilization?.shortName }}.{{ currentRowData.queen?.queen?.queen?.fertilizationDate }}
               :
-              {{ currentRowData.queen.queen.queen.name }}({{ currentRowData.queen.queen.queen.breeder.shortName }})=imq.{{ currentRowData.queen.queen.queen.fertilizationDate }}
+              {{ currentRowData.queen?.queen?.queen?.queen?.name }}({{ currentRowData.queen?.queen?.queen?.queen?.breeder?.shortName }})={{ currentRowData.queen?.queen?.queen?.queen?.fertilization?.shortName }}.{{ currentRowData.queen?.queen?.queen?.queen?.fertilizationDate }}
               :
             </div>
 
           </div>
 
         </div>
-<br>
-<br>
-<br>
-<br>
+        <br>
+        <br>
+        <br>
+        <br>
 
-        <button class="btn btn-warning" (click)="openDialogUpdate(currentRowData)" style="margin-left:10px; margin-right:10px">
+        <button class="btn btn-warning" (click)="openDialogUpdate(currentRowData)"
+          style="margin-left:10px; margin-right:10px">
           Edit
         </button>
-        <button class="btn btn-danger" (click)="deleteTutorial(currentRowData.id)" style="margin-left:10px; margin-right:10px">
+        <button class="btn btn-danger" (click)="deleteTutorial(currentRowData.id)"
+          style="margin-left:10px; margin-right:10px">
           Delete
         </button>
         <button class="btn btn-info" style="margin-left:10px; margin-right:10px">
@@ -113,14 +117,14 @@
         </button>
         <button style="margin-top:10px; color:#daa60c;font-weight:bold" mat-raised-button (click)="div1Function()">
 
-            Zeige Stammbaum V1
+          Zeige Stammbaum V1
 
         </button>
         <button style="margin-top:10px; color:#daa60c;font-weight:bold" mat-raised-button (click)="div2Function()">
 
           Zeige Stammbaum V2
 
-      </button>
+        </button>
       </div>
     </div>
   </div>
@@ -129,7 +133,7 @@
 
 
 
-    <app-tree2 *ngIf="div1"></app-tree2>
-    <app-tree-board-pedigree *ngIf="div2"></app-tree-board-pedigree>
+  <app-tree2 *ngIf="div1"></app-tree2>
+  <app-tree-board-pedigree *ngIf="div2"></app-tree-board-pedigree>
 
 </div>

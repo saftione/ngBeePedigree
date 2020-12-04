@@ -13,12 +13,12 @@ exports.create = (req, res) => {
   // Create a Tutorial
   const pedigree = new Pedigree({
     name: req.body.name,
-    breeder: '5fc9745aed80f00a98a390a0',
-    //fertilization: req.body.fertilization,
+    breeder: req.body.breeder,
+    fertilization: req.body.fertilization,
     fertilizationDate: req.body.fertilizationDate,
     properties: req.body.properties,
     queen: req.body.queen,
-    drones: req.body.drones,
+    // drones: req.body.drones,
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
 
@@ -44,6 +44,7 @@ exports.findAll = (req, res) => {
   var condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
 
   Pedigree.find(condition)
+    .populate("fertilization")
     .populate("breeder")
     .populate({
       path: "queen",
@@ -68,6 +69,21 @@ exports.findAll = (req, res) => {
           path: "queen",
           populate: {
             path: "breeder",
+          },
+        },
+      }
+    })
+    .populate({
+      path: "queen",
+      populate: {
+        path: "queen",
+        populate: {
+          path: "queen",
+          populate: {
+            path: "queen",
+            populate: {
+              path: "breeder",
+            },
           },
         },
       }

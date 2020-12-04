@@ -18,10 +18,10 @@ module.exports = mongoose => {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'pedigree'
       },
-      drone: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'pedigree'
-      },
+      //  drone: {
+      //   type: mongoose.Schema.Types.ObjectId,
+      //   ref: 'pedigree'
+      // },
       description: String,
       published: Boolean
     },

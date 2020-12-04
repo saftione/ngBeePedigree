@@ -9,14 +9,14 @@ import { MatSort } from '@angular/material/sort';
 const USER_KEY = 'auth-user';
 
 export interface PedigreeModel {
-  _id: string;
+  id: string;
   name: string;
   breeder: string;
   fertilization: string;
-  fertilizationDate: Date,
+  fertilizationDate: String,
   properties: string,
   queen: string;
-  drone: string;
+  // drones: string;
   description: String,
   published: Boolean
 }
@@ -105,7 +105,7 @@ export class PedigreeTableComponent implements OnInit {
       fertilizationDate: '',
       properties: '',
       queen: '',
-      drones: '',
+      // drones: '',
       description: '',
       published: '',
       user: userKey.id
@@ -114,7 +114,7 @@ export class PedigreeTableComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogPedigreeComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-      //data => console.log("Dialog output:", data),
+
       data => this.saveTutorial(data)
     );
   }
@@ -129,12 +129,12 @@ export class PedigreeTableComponent implements OnInit {
     dialogConfig.data = {
       id: updatedata.id,
       name: updatedata.name,
-      breeder: updatedata.breeder._id,
-      fertilization: updatedata.fertilization,
+      breeder: updatedata.breeder?._id,
+      fertilization: updatedata.fertilization?._id,
       fertilizationDate: updatedata.fertilizationDate,
       properties: updatedata.properties,
-      queen: updatedata.queen,
-      drones: updatedata.drones,
+      queen: updatedata.queen?._id,
+      // drones: updatedata.drone?._id,
       description: updatedata.description,
       published: updatedata.published,
       user: vari.id

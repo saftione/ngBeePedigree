@@ -21,7 +21,7 @@ export class DialogPedigreeComponent {
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<PedigreeComponent>,
-    @Inject(MAT_DIALOG_DATA) { id, name , user, breeder,fertilization,fertilizationDate,properties,queen,drones,description,published}: Storage) {
+    @Inject(MAT_DIALOG_DATA) { id, name , user, breeder,fertilization,fertilizationDate,properties,queen,description,published}: Storage) {
 
       //  wenn auslagerung dann mit kontrakt nr
 
@@ -34,12 +34,12 @@ export class DialogPedigreeComponent {
         fertilizationDate: fertilizationDate,
         properties:properties,
         queen: queen,
-        drones: drones,
+       // drones: drones,
         description: description,
         published: published
       });
 
-      alert("Queen und Drone müssen ausgewählt werden");
+      alert("Bitte alle Drop-down Felder ausfüllen");
 
 
   }

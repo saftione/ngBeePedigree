@@ -39,7 +39,7 @@ export class DialogPedigreeComponent {
         published: published
       });
 
-
+      alert("Queen und Drone ausgewählt werden");
 
 
   }

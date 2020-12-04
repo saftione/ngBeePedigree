@@ -1,4 +1,8 @@
 # BeePedigree
 
 # Progressive Web App
-  #local installation on all 
+  #
+  #Angular
+  #Express
+  #MongoDB
+  #d3-pedigree-tree

@@ -9,6 +9,10 @@ import { UserService } from '../../_services/login/user.service';
 export class HomeComponent implements OnInit {
 
   content: string;
+  bild1:string = 'assets/pwa.jpeg';
+  bild2:string = 'assets/pedigree.png';
+  bild3:string = 'assets/tree.png';
+  bild4:string = 'assets/hintergrund3.jpg';
 
   constructor(private userService: UserService) { }
 

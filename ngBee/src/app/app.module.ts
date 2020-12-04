@@ -71,6 +71,7 @@ import { TreeGlobalComponent } from './components/graph/tree-global/tree-global.
 import { TreeUserComponent } from './components/graph/tree-user/tree-user.component';
 import { PedigreeGraphBoardComponent } from './components/views/pedigree-graph-board/pedigree-graph-board.component';
 import { Tree2Component } from './components/graph/tree2/tree2.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -151,6 +152,7 @@ import { Tree2Component } from './components/graph/tree2/tree2.component';
     MatCheckboxModule,
     MatNativeDateModule, MatRippleModule,
     MatBadgeModule,
+    NgbModule,
 
   ],
   exports: [

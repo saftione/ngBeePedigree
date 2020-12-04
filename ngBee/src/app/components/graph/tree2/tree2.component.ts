@@ -29,11 +29,13 @@ function main() {
               {
                 "name": "B4",
                 "breeder": 'FT',
+                "year": "13",
                 "id": "fa5b0c07-9000-5475-a90e-b76af7693a57"
               },
               {
                 "name": "B5",
                 "breeder": 'FT',
+                "year": "12",
                 "id": "3194517d-1151-502e-a3b6-d1ae8234c647"
               }
             ]

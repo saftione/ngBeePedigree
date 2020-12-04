@@ -38,7 +38,7 @@ export class PedigreeTableComponent implements OnInit {
     this.div2 = true;
   }
 
-  displayedColumns: string[] = ['name', 'breeder', 'properties'];
+  displayedColumns: string[] = ['name', 'breeder', 'properties','action'];
   WarehouseData: any = [];
   dataSource: MatTableDataSource<PedigreeModel>;
 
@@ -153,7 +153,6 @@ export class PedigreeTableComponent implements OnInit {
         response => {
           console.log(response);
           this.getdata();
-
         },
         error => {
           console.log(error);

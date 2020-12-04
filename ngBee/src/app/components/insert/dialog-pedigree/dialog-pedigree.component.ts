@@ -29,7 +29,7 @@ export class DialogPedigreeComponent {
         id: id,
         name:name,
         user: user,
-        breeder: '5fc9745aed80f00a98a390a0',
+        breeder: breeder,
         fertilization: fertilization,
         fertilizationDate: fertilizationDate,
         properties:properties,
@@ -39,7 +39,7 @@ export class DialogPedigreeComponent {
         published: published
       });
 
-      alert("Queen und Drone ausgewählt werden");
+      alert("Queen und Drone müssen ausgewählt werden");
 
 
   }

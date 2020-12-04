@@ -13,8 +13,8 @@ exports.create = (req, res) => {
   // Create a Tutorial
   const pedigree = new Pedigree({
     name: req.body.name,
-    breeder: req.body.breeder,
-    // fertilization: req.body.fertilization,
+    breeder: '5fc9745aed80f00a98a390a0',
+    //fertilization: req.body.fertilization,
     fertilizationDate: req.body.fertilizationDate,
     properties: req.body.properties,
     queen: req.body.queen,

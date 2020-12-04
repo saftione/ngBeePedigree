@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   bild1:string = 'assets/pwa.jpeg';
   bild2:string = 'assets/pedigree.png';
   bild3:string = 'assets/tree.png';
-  bild4:string = 'assets/hintergrund3.jpg';
+  bild4:string = 'assets/hintergrund4.png';
 
   constructor(private userService: UserService) { }
 

@@ -23,7 +23,6 @@ import { TutorialDetailsComponent } from './components/test/tutorial-details/tut
 import { TutorialsListComponent } from './components/test/tutorials-list/tutorials-list.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 
-import { PedigreeComponent } from './components/insert/pedigree/pedigree.component';
 import { DialogPedigreeComponent } from './components/insert/dialog-pedigree/dialog-pedigree.component';
 import { PedigreeDroneSearchComponent } from './components/insert/pedigree-drone-search/pedigree-drone-search.component';
 import { BreederSearchComponent } from './components/insert/breeder-search/breeder-search.component';
@@ -66,10 +65,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { TreeBoardComponent } from './components/graph/tree-board/tree-board.component';
 import { TreeBoardPedigreeComponent } from './components/graph/tree-board-pedigree/tree-board-pedigree.component';
 import { TreeGlobalComponent } from './components/graph/tree-global/tree-global.component';
-import { TreeUserComponent } from './components/graph/tree-user/tree-user.component';
 import { PedigreeGraphBoardComponent } from './components/views/pedigree-graph-board/pedigree-graph-board.component';
 import { Tree2Component } from './components/graph/tree2/tree2.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -88,16 +85,13 @@ import { FertilizationSearchComponent } from './components/insert/fertilization-
     TutorialDetailsComponent,
     TutorialsListComponent,
     AddTutorialComponent,
-    PedigreeComponent,
     DialogPedigreeComponent,
     PedigreeQueenSearchComponent,
     PedigreeDroneSearchComponent,
     BreederSearchComponent,
     PedigreeTableComponent,
-    TreeBoardComponent,
     TreeBoardPedigreeComponent,
     TreeGlobalComponent,
-    TreeUserComponent,
     PedigreeGraphBoardComponent,
     Tree2Component,
     FertilizationSearchComponent,

@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
-import { PedigreeComponent } from '../pedigree/pedigree.component';
+import { PedigreeTableComponent } from '../pedigree-table/pedigree-table.component';
 
 @Component({
   selector: 'app-dialog-pedigree',
@@ -20,7 +20,7 @@ export class DialogPedigreeComponent {
 
   constructor(
     private fb: FormBuilder,
-    private dialogRef: MatDialogRef<PedigreeComponent>,
+    private dialogRef: MatDialogRef<PedigreeTableComponent>,
     @Inject(MAT_DIALOG_DATA) { id, name , user, breeder,fertilization,fertilizationDate,properties,queen,description,published}: Storage) {
 
       //  wenn auslagerung dann mit kontrakt nr
